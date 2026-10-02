@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #202333;
+}
+
+header {
+    background: #fff;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7ef;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #5b4bdb;
+}
+
+.botao {
+    background: #5b4bdb;
+    color: #fff;
+    text-decoration: none;
+    padding: 11px 18px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background: #4939c5;
+}
+
+main {
+    width: 80%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.hero {
+    background: linear-gradient(135deg, #5b4bdb, #7c5cff);
+    color: #fff;
+    padding: 45px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    opacity: .9;
+}
+
+.filtros {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.busca {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.busca input {
+    flex: 1;
+}
+
+input, textarea {
+    width: 100%;
+    border: 1px solid #dfe2eb;
+    border-radius: 9px;
+    padding: 12px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #5b4bdb;
+}
+
+.busca button {
+    border: 0;
+    background: #202333;
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.botoes-filtro {
+    display: flex;
+    gap: 10px;
+}
+
+.botoes-filtro a {
+    text-decoration: none;
+    color: #555;
+    padding: 9px 15px;
+    border-radius: 8px;
+}
+
+.botoes-filtro a:hover, .botoes-filtro .ativo {
+    background: #5b4bdb;
+    color: #fff;
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+}
+
+.topo-card {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.perdido, .encontrado, .resolvido {
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.perdido {
+    background: #ffe5e5;
+    color: #d83a3a;
+}
+
+.encontrado {
+    background: #e1f8eb;
+    color: #17884b;
+}
+
+.resolvido {
+    background: #e7e9ee;
+    color: #555;
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 18px;
+}
+
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.resolver {
+    display: block;
+    margin-top: 20px;
+    color: #5b4bdb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.formulario {
+    background: #fff;
+    max-width: 650px;
+    margin: auto;
+    padding: 35px;
+    border-radius: 18px;
+}
+
+.formulario h1 {
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.formulario textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.tipo {
+    display: flex;
+    gap: 20px;
+}
+
+.tipo label {
+    font-weight: normal;
+}
+
+.tipo input {
+    width: auto;
+}
+
+.cadastrar {
+    border: 0;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.voltar {
+    color: #5b4bdb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.mensagem {
+    background: #e2f8eb;
+    color: #167343;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.vazio {
+    background: #fff;
+    text-align: center;
+    padding: 50px;
+    border-radius: 15px;
+    grid-column: 1 / -1;
+}
+
+.vazio div {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.vazio p {
+    color: #777;
+    margin-top: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+}

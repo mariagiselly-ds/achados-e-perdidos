@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados & Perdidos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <div class="logo">🔎 Achados & Perdidos</div>
+    <a href="{{ url_for('cadastrar') }}" class="botao">+ Cadastrar item</a>
+</header>
+
+<main>
+    <section class="hero">
+        <h1>Achou ou perdeu alguma coisa?</h1>
+        <p>Encontre objetos perdidos ou ajude alguém a recuperar o que encontrou.</p>
+    </section>
+
+    {% with mensagens = get_flashed_messages(with_categories=true) %}
+        {% if mensagens %}
+            {% for categoria, mensagem in mensagens %}
+                <div class="mensagem">✓ {{ mensagem }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <section class="filtros">
+        <form method="GET" class="busca">
+            <input type="text" name="busca" placeholder="Buscar item..." value="{{ busca }}">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div class="botoes-filtro">
+            <a href="{{ url_for('index') }}" class="{{ 'ativo' if filtro == 'Todos' else '' }}">Todos</a>
+            <a href="{{ url_for('index', filtro='Perdidos') }}" class="{{ 'ativo' if filtro == 'Perdidos' else '' }}">Perdidos</a>
+            <a href="{{ url_for('index', filtro='Encontrados') }}" class="{{ 'ativo' if filtro == 'Encontrados' else '' }}">Encontrados</a>
+        </div>
+    </section>
+
+    <section class="lista">
+        {% if itens %}
+            {% for item in itens %}
+                <article class="card">
+                    <div class="topo-card">
+                        <span class="{{ 'perdido' if item['tipo'] == 'Perdido' else 'encontrado' }}">
+                            {{ item['tipo'] }}
+                        </span>
+                        {% if item['status'] == 'Resolvido' %}
+                            <span class="resolvido">✓ Resolvido</span>
+                        {% endif %}
+                    </div>
+
+                    <h2>{{ item['nome'] }}</h2>
+                    <p>{{ item['descricao'] }}</p>
+
+                    <div class="informacoes">
+                        <span>📍 {{ item['local'] }}</span>
+                        <span>📞 {{ item['contato'] }}</span>
+                    </div>
+
+                    {% if item['status'] != 'Resolvido' %}
+                        <a href="{{ url_for('resolver', id=item['id']) }}"
+                           class="resolver"
+                           onclick="return confirmarResolucao()">
+                            Marcar como resolvido
+                        </a>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        {% else %}
+            <div class="vazio">
+                <div>📭</div>
+                <h2>Nenhum item encontrado</h2>
+                <p>Tente outra busca ou cadastre um novo item.</p>
+            </div>
+        {% endif %}
+    </section>
+</main>
+
+<footer>Achados & Perdidos • Projeto escolar</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

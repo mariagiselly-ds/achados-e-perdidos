@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar item</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <div class="logo">🔎 Achados & Perdidos</div>
+    <a href="{{ url_for('index') }}" class="voltar">← Voltar</a>
+</header>
+
+<main>
+    <section class="formulario">
+        <h1>Cadastrar item</h1>
+        <p class="subtitulo">Informe os dados do objeto perdido ou encontrado.</p>
+
+        <form method="POST">
+            <label>O que aconteceu?</label>
+            <div class="tipo">
+                <label><input type="radio" name="tipo" value="Perdido" required> 🔴 Perdi</label>
+                <label><input type="radio" name="tipo" value="Encontrado"> 🟢 Encontrei</label>
+            </div>
+
+            <label for="nome">Nome do item</label>
+            <input type="text" id="nome" name="nome" placeholder="Ex: Carteira preta" required>
+
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" placeholder="Descreva o item..." required></textarea>
+
+            <label for="local">Local</label>
+            <input type="text" id="local" name="local" placeholder="Ex: Biblioteca" required>
+
+            <label for="contato">Contato</label>
+            <input type="text" id="contato" name="contato" placeholder="Ex: (81) 99999-9999" required>
+
+            <button type="submit" class="botao cadastrar">Cadastrar item</button>
+        </form>
+    </section>
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
